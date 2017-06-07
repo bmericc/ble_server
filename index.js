@@ -61,23 +61,23 @@ DynamicReadOnlyCharacteristic.prototype.onReadRequest = function(offset, callbac
 
 // util.inherits(LongDynamicReadOnlyCharacteristic, BlenoCharacteristic);
 
-LongDynamicReadOnlyCharacteristic.prototype.onReadRequest = function(offset, callback) {
-  var result = this.RESULT_SUCCESS;
-  var data = new Buffer(512);
+// LongDynamicReadOnlyCharacteristic.prototype.onReadRequest = function(offset, callback) {
+//   var result = this.RESULT_SUCCESS;
+//   var data = new Buffer(512);
 
-  for (var i = 0; i < data.length; i++) {
-    data[i] = i % 256;
-  }
+//   for (var i = 0; i < data.length; i++) {
+//     data[i] = i % 256;
+//   }
 
-  if (offset > data.length) {
-    result = this.RESULT_INVALID_OFFSET;
-    data = null;
-  } else {
-    data = data.slice(offset);
-  }
+//   if (offset > data.length) {
+//     result = this.RESULT_INVALID_OFFSET;
+//     data = null;
+//   } else {
+//     data = data.slice(offset);
+//   }
 
-  callback(result, data);
-};
+//   callback(result, data);
+// };
 
 var WriteOnlyCharacteristic = function() {
   WriteOnlyCharacteristic.super_.call(this, {
